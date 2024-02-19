@@ -3,6 +3,9 @@ FIX协议的基本格式是一串 key=value
 value的部分是任意字符，可能有空格，甚至为空，通常不包含=的部分
 总是以8=开头， 以10=\d\d\d结束
 前面三个栏位总是8/9/35
+栏位8的值通常是FIX.4.2 或 FIX.4.4
+栏位9的值是 Message length, in bytes, forward to the CheckSum <10> field.
+栏位35标记了本条消息的类型，同类型的消息其栏位构成基本一致
 
 通常FIX Log有分隔符存在，例如：
 8=FIX.4.4|9=61|35=A|34=1|49=SenderCompID|52=20220219-10:14:33.123|56=TargetCompID|98=0|108=30|10=177
