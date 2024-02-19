@@ -46,3 +46,28 @@ ChatGPT
 |: 或操作符，表示前面的部分或者字符串的结尾（$）可以作为键值对的结束。
 这个正则表达式可以很好地解析 FIX 协议中的键值对，并且考虑到了键值对之间可能存在的空格分隔和字符串末尾的情况。
 '''
+
+
+import unittest
+
+class TestFixParser(unittest.TestCase):
+    def test_parse_fix_log(self):
+        # 测试解析简单的 FIX 日志
+        fix_log = "35=8  49=SenderCompID 56=TargetCompID 34=4"
+        expected_output = {35: '8', 49: 'SenderCompID', 56: 'TargetCompID', 34: '4'}
+        self.assertEqual(parse_fix_log(fix_log), expected_output)
+
+        # 测试解析包含特殊字符的 FIX 日志
+        fix_log = "35=8  49=SenderCompID 56=TargetCompID 34=4 10=FinalMessage"
+        expected_output = {35: '8', 49: 'SenderCompID', 56: 'TargetCompID', 34: '4', 10: 'FinalMessage'}
+        self.assertEqual(parse_fix_log(fix_log), expected_output)
+
+        # 测试解析空日志
+        fix_log = ""
+        expected_output = {}
+        self.assertEqual(parse_fix_log(fix_log), expected_output)
+
+        # 添加更多测试用例...
+
+if __name__ == '__main__':
+    unittest.main()
