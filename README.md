@@ -18,3 +18,9 @@ Simple FIX Engine based on Python3
 
 - [simplefix](https://pypi.python.org/pypi/simplefix)
 - [PyFIX](https://github.com/wannabegeek/PyFIX)
+
+## FIX协议相关基础知识
+- FIX协议相关
+  - <https://www.onixs.biz/fix-dictionary.html>
+  - <http://fiximate.fixtrading.org/latestEP/>
+  - <https://javarevisited.blogspot.com/search/label/FIX%20protocol%20tutorial>
